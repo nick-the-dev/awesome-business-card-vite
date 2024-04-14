@@ -17,7 +17,7 @@ const schema = a.schema({
       instagramUrl: a.string(),
       logoUrl: a.string(),
       qrCodeUrl: a.string(),
-      gallery: a.hasOne('Gallery'),
+      //gallery: a.hasOne('Gallery'),
       reviews: a.hasMany('Review'),
     })
     .authorization([a.allow.public()]),
