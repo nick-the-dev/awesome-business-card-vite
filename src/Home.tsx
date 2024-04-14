@@ -64,7 +64,7 @@ const Home = () => {
           {profileData.name} - {profileData.title}
         </title>
       </Helmet>
-      <div className="bg-gray-500 h-[calc(100dvh)] relative">
+      <div className="h-[calc(100dvh)] relative">
         <div className="flex flex-col justify-center items-center h-[calc(100dvh)] gap-10 appContainer z-10 relative">
           <div className="qrWrapper">
             <QRCode value={window.location.href} />
