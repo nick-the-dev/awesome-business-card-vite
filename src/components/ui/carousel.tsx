@@ -41,7 +41,8 @@ function useCarousel() {
   return context
 }
 
-const calculateAverageColor = (imageData) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const calculateAverageColor = (imageData: any) => {
   const data = imageData.data
   const totalPixels = imageData.width * imageData.height
   let r = 0,
@@ -69,7 +70,7 @@ const updateBackgroundColor = () => {
     .then((canvas) => {
       const ctx = canvas.getContext('2d')
       const stripHeight = 5
-      const imageData = ctx.getImageData(0, 0, canvas.width, stripHeight)
+      const imageData = ctx?.getImageData(0, 0, canvas.width, stripHeight)
       const { r, g, b, a } = calculateAverageColor(imageData)
 
       const avgColor = `rgba(${r}, ${g}, ${b}, ${a / 255})`
