@@ -16,6 +16,11 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  height: 100dvh;
+  overflow: hidden;
+}
+
 h1 {
   line-height: 1.4!important;
 }
@@ -36,6 +41,10 @@ h1 {
   position: absolute;
   top: 0;
   z-index: 1;
+  max-width: 767px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
 .carouselWrapper img {

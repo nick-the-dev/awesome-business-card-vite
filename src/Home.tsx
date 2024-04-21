@@ -30,7 +30,18 @@ import gallery9 from '@/assets/gallery/9.jpg'
 import gallery10 from '@/assets/gallery/10.jpg'
 import gallery11 from '@/assets/gallery/11.jpg'
 
+//Other
+import useAverageColorUpdater from '@/hooks/useAverageColorUpdater'
+import { useEffect } from 'react'
+
 const Home = () => {
+  const updateColor = useAverageColorUpdater()
+
+  useEffect(() => {
+    updateColor()
+  }, [updateColor])
+  
+
   const profileData = {
     name: 'שיר מנחם ניסים',
     shortName: 'שיר',
