@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Button } from '@/components/ui/button'
 import { AddToContactsButton } from '@/components/addToContactsButton'
@@ -8,6 +9,7 @@ import {
   CarouselItem,
 } from '@/components/ui/carousel'
 import QRCode from 'react-qr-code'
+import { updateBackgroundColor } from '@/helpers/updateBgColor'
 
 //icons
 import phoneIcon from '@/assets/icons/phoneIcon.svg'
@@ -56,6 +58,10 @@ const Home = () => {
     ],
     reviews: [],
   }
+
+  useEffect(() => {
+    updateBackgroundColor()
+  })
 
   return (
     <>

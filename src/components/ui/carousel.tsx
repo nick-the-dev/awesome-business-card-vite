@@ -121,17 +121,17 @@ const Carousel = React.forwardRef<
     }, [api, onSelect])
 
     //
-    React.useEffect(() => {
-      if (!api) {
-        return
-      }
+    // React.useEffect(() => {
+    //   if (!api) {
+    //     return
+    //   }
 
-      api.on('slidesInView', updateBackgroundColor)
+    //   api.on('slidesInView', updateBackgroundColor)
 
-      return () => {
-        api?.off('slidesInView', updateBackgroundColor)
-      }
-    }, [api, updateBackgroundColor])
+    //   return () => {
+    //     api?.off('slidesInView', updateBackgroundColor)
+    //   }
+    // }, [api, updateBackgroundColor])
 
     return (
       <CarouselContext.Provider
