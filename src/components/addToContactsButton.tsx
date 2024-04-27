@@ -36,7 +36,7 @@ const AddToContactsButton = ({
   return (
     <Button
       variant="rounded"
-      className="text-2xl text-white gap-2"
+      className="text-2xl text-white gap-2 addToContactsButton"
       onClick={handleAddToContacts}
     >
       {buttonText}

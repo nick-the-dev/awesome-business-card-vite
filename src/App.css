@@ -77,6 +77,81 @@ h1 {
   background: #fff;
 }
 
+.swiper-button-prev::before {
+  content: "";
+  display: block;
+  width: 57px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56.577' height='21.902' viewBox='0 0 56.577 21.902'%3E%3Cg id='חץ_הבא' data-name='חץ הבא' transform='translate(-289.341 34.503)'%3E%3Cg id='Group_38' data-name='Group 38' transform='translate(289.341 -24.516)'%3E%3Cpath id='Path_130' data-name='Path 130' d='M303.79-29.978c5.7-.37,14.369-.37,20.074-.593,1.257-.071,2.517-.294,3.776-.294,1.186,0,1.482.145,1.336,1.109-.077.373-.222.966-1.26,1.037-5.557.445-26.817.667-32.372.889-4.89.222-8.6-1.776-3.7-1.7C295.345-29.459,300.085-29.827,303.79-29.978Z' transform='translate(-289.341 30.864)' fill='%23707070'/%3E%3C/g%3E%3Cg id='Group_39' data-name='Group 39' transform='translate(323.145 -34.503)'%3E%3Cpath id='Path_131' data-name='Path 131' d='M321.448-24.505c-1.921-.864-3.2-1.655-4.693-2.261-8.03-3.112-12.006-4.671-15.1-6.732a1.1,1.1,0,0,1,1.057-1c1.095-.132,9.191,3.6,20.7,8.727.417.184,1.043.818,1.013,1.213a2.165,2.165,0,0,1-1.09,1.4l-9.188,5.39c-3.019,1.707-6.051,3.343-9.171,4.907a.966.966,0,0,1-1.531-.283c1.454-2.308,9.086-6.243,14.761-9.462C319.1-23.114,319.969-23.693,321.448-24.505Z' transform='translate(-301.659 34.503)' fill='%23707070'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  min-width: 57px;
+}
+
+.swiper-button-next::after {
+  display: none;
+}
+
+.swiper-button-prev::after {
+  display: none;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  height: auto !important;
+  width: auto !important;
+  background: rgb(55 55 55 / 10%);
+  border-radius: 27px;
+  padding: 0.2rem 1rem;
+  bottom: 1.6rem;
+  top: auto !important;
+}
+
+.swiper-button-next::before {
+  content: "";
+  display: block;
+  width: 57px;
+  height: 22px;
+  min-width: 57px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56.577' height='21.902' viewBox='0 0 56.577 21.902'%3E%3Cg id='חץ_הקודם' data-name='חץ הקודם' transform='translate(345.918 -12.601) rotate(180)'%3E%3Cg id='Group_38' data-name='Group 38' transform='translate(289.341 -24.516)'%3E%3Cpath id='Path_130' data-name='Path 130' d='M303.79-29.978c5.7-.37,14.369-.37,20.074-.593,1.257-.071,2.517-.294,3.776-.294,1.186,0,1.482.145,1.336,1.109-.077.373-.222.966-1.26,1.037-5.557.445-26.817.667-32.372.889-4.89.222-8.6-1.776-3.7-1.7C295.345-29.459,300.085-29.827,303.79-29.978Z' transform='translate(-289.341 30.864)' fill='%23707070'/%3E%3C/g%3E%3Cg id='Group_39' data-name='Group 39' transform='translate(323.145 -34.503)'%3E%3Cpath id='Path_131' data-name='Path 131' d='M321.448-24.505c-1.921-.864-3.2-1.655-4.693-2.261-8.03-3.112-12.006-4.671-15.1-6.732a1.1,1.1,0,0,1,1.057-1c1.095-.132,9.191,3.6,20.7,8.727.417.184,1.043.818,1.013,1.213a2.165,2.165,0,0,1-1.09,1.4l-9.188,5.39c-3.019,1.707-6.051,3.343-9.171,4.907a.966.966,0,0,1-1.531-.283c1.454-2.308,9.086-6.243,14.761-9.462C319.1-23.114,319.969-23.693,321.448-24.505Z' transform='translate(-301.659 34.503)' fill='%23707070'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+}
+
+.swiper-rtl .swiper-button-prev {
+  right: 2rem!important;
+}
+
+.swiper-rtl .swiper-button-next {
+  left: 2rem!important;
+}
+
+.reviewsWrapper {
+  position: absolute;
+  top: 0;
+  max-width: 767px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+.reviewsWrapper img {
+  height: auto;
+  min-height: 100dvh;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  min-width: 100%;
+  transform: translateX(-50%);
+}
+
+.mainTitle {
+  -webkit-text-stroke: 1px;
+}
+
+.buttonsWrapper {
+  max-width: 24rem;
+}
+
+.addToContactsButton {
+  font-size: 1.6rem;
+  height: 2.8rem;
+}
 
 @layer base {
   :root {

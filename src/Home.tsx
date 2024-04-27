@@ -11,6 +11,8 @@ import {
 import QRCode from 'react-qr-code'
 import { updateBackgroundColor } from '@/helpers/updateBgColor'
 import Reviews from '@/components/reviews/reviews'
+import { useLocation } from 'react-router-dom'
+
 
 //icons
 import phoneIcon from '@/assets/icons/phoneIcon.svg'
@@ -22,6 +24,15 @@ import { profileData } from '@/components/data'
 
 const Home = () => {
   const [reviewsOpen, setReviewsOpen] = useState(false)
+  const [qrShown, setQrShown] = useState(false)
+
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.pathname === '/qr') {
+      setQrShown(true)
+    }
+  }, [location]) 
 
   useEffect(() => {
     updateBackgroundColor()
@@ -36,15 +47,22 @@ const Home = () => {
       </Helmet>
       <div className="h-[calc(100dvh)] relative">
         <div className="flex flex-col justify-center items-center h-[calc(100dvh)] gap-10 appContainer z-10 relative">
-          <div className="qrWrapper">
-            <QRCode value={window.location.href} />
-          </div>
-          <h1 className="text-center text-white text-3xl">
+          {qrShown && (
+            <div className="qrWrapper">
+              <QRCode value={window.location.href} />
+            </div>
+          )}
+          <h1
+            className="text-center text-white text-3xl mainTitle"
+            style={{
+              fontSize: '2rem',
+            }}
+          >
             {profileData.name}
             <br />
             {profileData.title}
           </h1>
-          <div className="flex flex-wrap justify-center gap-y-5">
+          <div className="flex flex-wrap justify-center gap-y-5 buttonsWrapper">
             <div className="text-white flex flex-col items-center gap-1 text-center text-3xl w-1/3">
               <a href={`tel:${profileData.phoneNumber}`} target="_blank">
                 <Button className="roundButton" variant="circle">
@@ -132,13 +150,14 @@ const Home = () => {
                 top: '10px',
                 right: '10px',
                 zIndex: 2,
-                fontSize: '2rem',
+                fontSize: '2.1rem',
                 width: 'auto',
                 display: 'flex',
                 gap: '1rem',
                 height: 'auto',
-                padding: '0.6rem 1.5rem',
+                padding: '0.6rem 1.5rem 0.8rem',
                 backgroundColor: '#CACAC8',
+                color: '#707070',
               }}
             >
               <svg
