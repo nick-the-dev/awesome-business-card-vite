@@ -66,6 +66,17 @@ h1 {
   left: 20px;
 }
 
+.reviewsWrapper {
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  max-width: 767px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: #fff;
+}
+
 
 @layer base {
   :root {
