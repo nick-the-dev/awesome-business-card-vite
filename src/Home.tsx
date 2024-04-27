@@ -69,7 +69,7 @@ const Home = () => {
                   <img src={phoneIcon} alt="Phone icon" />
                 </Button>
               </a>
-              <span>חייגו על {profileData.shortName}</span>
+              <span>חייגו אל {profileData.shortName}</span>
             </div>
             <div className="text-white flex flex-col items-center gap-1 text-center text-3xl w-1/3">
               <a

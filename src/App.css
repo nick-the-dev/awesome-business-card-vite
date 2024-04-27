@@ -146,11 +146,18 @@ h1 {
 
 .buttonsWrapper {
   max-width: 24rem;
+  font-size: 1.6rem;
 }
 
 .addToContactsButton {
   font-size: 1.6rem;
-  height: 2.8rem;
+  height: 2.4rem;
+  -webkit-text-stroke: 1px;
+}
+
+h1 {
+  line-height: 1.8 !important;
+  letter-spacing: 0.1rem;
 }
 
 @layer base {
