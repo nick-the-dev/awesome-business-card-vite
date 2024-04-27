@@ -9,12 +9,10 @@ const Reviews = () => {
   return (
     <>
       <Swiper
+        key="he"
         style={{
-          '--swiper-navigation-color': '#fff',
-          '--swiper-pagination-color': '#fff',
           height: '100dvh',
         }}
-        lazy={'true'}
         pagination={{
           clickable: true,
         }}
