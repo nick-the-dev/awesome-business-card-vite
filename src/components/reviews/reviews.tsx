@@ -8,7 +8,6 @@ const Reviews = () => {
   return (
     <>
       <Swiper
-        key="he"
         style={{
           height: '100dvh',
         }}

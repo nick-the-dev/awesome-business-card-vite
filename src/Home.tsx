@@ -140,7 +140,7 @@ const Home = () => {
         </div>
         {/* if reviews is open */}
         {reviewsOpen && (
-          <div className="reviewsWrapper">
+          <div className="reviewsWrapper" dir="ltr">
             <Button
               className="roundButton"
               variant="rounded"
@@ -158,6 +158,7 @@ const Home = () => {
                 padding: '0.6rem 1.5rem 0.8rem',
                 backgroundColor: '#CACAC8',
                 color: '#707070',
+                flexDirection: 'row-reverse',
               }}
             >
               <svg
