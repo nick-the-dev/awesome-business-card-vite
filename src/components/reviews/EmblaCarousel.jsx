@@ -1,16 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { LazyLoadImage } from './EmblaCarouselLazyLoadImage'
+import Fade from './embla-carousel-fade'
 import {
   NextButton,
   PrevButton,
-  usePrevNextButtons
+  usePrevNextButtons,
 } from './EmblaCarouselArrowButtons'
 import { DotButton, useDotButton } from './EmblaCarouselDotButton'
 
 const EmblaCarousel = (props) => {
   const { slides, options } = props
-  const [emblaRed, emblaApi] = useEmblaCarousel(options)
+  const [emblaRed, emblaApi] = useEmblaCarousel(options, [Fade()])
   const [slidesInView, setSlidesInView] = useState([])
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -20,7 +21,7 @@ const EmblaCarousel = (props) => {
     prevBtnDisabled,
     nextBtnDisabled,
     onPrevButtonClick,
-    onNextButtonClick
+    onNextButtonClick,
   } = usePrevNextButtons(emblaApi)
 
   const updateSlidesInView = useCallback((emblaApi) => {
@@ -70,7 +71,7 @@ const EmblaCarousel = (props) => {
               key={index}
               onClick={() => onDotButtonClick(index)}
               className={'embla__dot'.concat(
-                index === selectedIndex ? ' embla__dot--selected' : ''
+                index === selectedIndex ? ' embla__dot--selected' : '',
               )}
             />
           ))}

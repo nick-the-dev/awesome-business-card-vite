@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Button } from '@/components/ui/button'
 import { AddToContactsButton } from '@/components/addToContactsButton'
-import Autoplay from 'embla-carousel-autoplay'
 import {
   Carousel,
   CarouselContent,
@@ -12,7 +11,12 @@ import QRCode from 'react-qr-code'
 import { updateBackgroundColor } from '@/helpers/updateBgColor'
 import Reviews from '@/components/reviews/reviews'
 import { useLocation } from 'react-router-dom'
-
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Autoplay, EffectFade } from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/autoplay'
+import 'swiper/css/effect-fade'
 
 //icons
 import phoneIcon from '@/assets/icons/phoneIcon.svg'
@@ -32,7 +36,7 @@ const Home = () => {
     if (location.pathname === '/qr') {
       setQrShown(true)
     }
-  }, []) 
+  }, [])
 
   useEffect(() => {
     updateBackgroundColor()
@@ -118,7 +122,7 @@ const Home = () => {
           <img src={profileData.logoUrl} alt="Logo" />
         </div>
         <div className="carouselWrapper">
-          <Carousel
+          {/* <Carousel
             plugins={[
               Autoplay({
                 delay: 2500,
@@ -136,7 +140,27 @@ const Home = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-          </Carousel>
+          </Carousel> */}
+          <Swiper
+            style={{
+              height: '100dvh',
+            }}
+            effect="fade"
+            modules={[Navigation, Autoplay, EffectFade]}
+            className="mySwiper"
+            dir="ltr"
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+          >
+            {profileData.gallery.map((src, index) => (
+              <SwiperSlide key={index}>
+                <img src={src} alt={`Image ${index}`} loading="lazy" />
+                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         {/* if reviews is open */}
         {reviewsOpen && (
