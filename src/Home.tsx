@@ -32,7 +32,7 @@ const Home = () => {
     if (location.pathname === '/qr') {
       setQrShown(true)
     }
-  }, [location]) 
+  }, []) 
 
   useEffect(() => {
     updateBackgroundColor()
