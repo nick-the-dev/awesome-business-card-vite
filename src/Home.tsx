@@ -2,11 +2,6 @@ import { useEffect, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Button } from '@/components/ui/button'
 import { AddToContactsButton } from '@/components/addToContactsButton'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel'
 import QRCode from 'react-qr-code'
 import { updateBackgroundColor } from '@/helpers/updateBgColor'
 import Reviews from '@/components/reviews/reviews'
@@ -122,25 +117,6 @@ const Home = () => {
           <img src={profileData.logoUrl} alt="Logo" />
         </div>
         <div className="carouselWrapper">
-          {/* <Carousel
-            plugins={[
-              Autoplay({
-                delay: 2500,
-              }),
-            ]}
-            className="w-full"
-            dir="ltr"
-          >
-            <CarouselContent>
-              {profileData.gallery.map((src, index) => (
-                <CarouselItem key={index} className="pl-0">
-                  <div className="">
-                    <img src={src} alt="" />
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel> */}
           <Swiper
             style={{
               height: '100dvh',
