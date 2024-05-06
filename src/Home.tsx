@@ -41,7 +41,7 @@ const Home = () => {
         <div className="flex flex-col justify-center items-center h-[calc(100dvh)] gap-10 appContainer z-10 relative">
           {location.pathname === '/qr' && (
             <div className="qrWrapper">
-              <QRCode value={window.location.href} />
+              <QRCode value={'123123123'} />
             </div>
           )}
           <h1
@@ -125,7 +125,7 @@ const Home = () => {
           >
             {profileData.gallery.map((src, index) => (
               <SwiperSlide key={index}>
-                <img src={src} alt={`Image ${index}`} loading="lazy" />
+                <img src={src} alt={`Image ${index}`} />
                 <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
               </SwiperSlide>
             ))}
