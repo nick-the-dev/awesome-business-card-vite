@@ -23,15 +23,8 @@ import { profileData } from '@/components/data'
 
 const Home = () => {
   const [reviewsOpen, setReviewsOpen] = useState(false)
-  const [qrShown, setQrShown] = useState(false)
 
   const location = useLocation()
-
-  useEffect(() => {
-    if (location.pathname === '/qr') {
-      setQrShown(true)
-    }
-  }, [])
 
   useEffect(() => {
     updateBackgroundColor()
@@ -46,7 +39,7 @@ const Home = () => {
       </Helmet>
       <div className="h-[calc(100dvh)] relative">
         <div className="flex flex-col justify-center items-center h-[calc(100dvh)] gap-10 appContainer z-10 relative">
-          {qrShown && (
+          {location.pathname === '/qr' && (
             <div className="qrWrapper">
               <QRCode value={window.location.href} />
             </div>
