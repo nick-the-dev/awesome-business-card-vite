@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { animated, useTransition } from '@react-spring/web'
+import { updateBackgroundColor } from '@/helpers/updateBgColor'
 
 const Gallery = ({ images }: { images: Array<string> }) => {
   const slides = images.map((image, index) => ({
@@ -17,8 +18,13 @@ const Gallery = ({ images }: { images: Array<string> }) => {
   })
 
   useEffect(() => {
+    updateBackgroundColor()
+  }, [])
+
+  useEffect(() => {
     const interval = setInterval(() => {
       setIndex((state) => (state + 1) % slides.length)
+      updateBackgroundColor()
     }, 3000)
     return () => clearInterval(interval)
   }, [])
