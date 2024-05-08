@@ -6,8 +6,7 @@ import QRCode from 'react-qr-code'
 import { updateBackgroundColor } from '@/helpers/updateBgColor'
 import Reviews from '@/components/reviews/reviews'
 import { useLocation } from 'react-router-dom'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation, Autoplay, EffectFade } from 'swiper/modules'
+import Gallery from '@/components/gallery'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/autoplay'
@@ -110,26 +109,7 @@ const Home = () => {
           <img src={profileData.logoUrl} alt="Logo" />
         </div>
         <div className="carouselWrapper">
-          <Swiper
-            style={{
-              height: '100dvh',
-            }}
-            effect="fade"
-            modules={[Navigation, Autoplay, EffectFade]}
-            className="mySwiper"
-            dir="ltr"
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-          >
-            {profileData.gallery.map((src, index) => (
-              <SwiperSlide key={index}>
-                <img src={src} alt={`Image ${index}`} />
-                <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <Gallery images={profileData.gallery} />
         </div>
         {/* if reviews is open */}
         {reviewsOpen && (
