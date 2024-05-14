@@ -25,13 +25,29 @@ const Gallery = ({ images }: { images: Array<string> }) => {
     // Preload the first image
     loadImage(images[currentSlide]);
 
-    // Set up the interval to change slides every 2 seconds
-    intervalRef.current = setInterval(() => {
+    // Preload the next image
+    const preloadNextImage = (currentIndex: number) => {
+      const nextSlide = (currentIndex + 1) % images.length;
+      loadImage(images[nextSlide]);
+    };
+
+    // Set up the interval to change slides every 2 seconds if the next image is loaded
+    const changeSlide = () => {
       setCurrentSlide((prevSlide) => {
         const nextSlide = (prevSlide + 1) % images.length;
-        loadImage(images[nextSlide]);
-        return nextSlide;
+        if (loadedImages[images[nextSlide]]) {
+          preloadNextImage(nextSlide);
+          return nextSlide;
+        }
+        return prevSlide;
       });
+    };
+
+    // Preload the next image initially
+    preloadNextImage(currentSlide);
+
+    intervalRef.current = setInterval(() => {
+      changeSlide();
     }, 2000);
 
     // Clean up the interval on component unmount
