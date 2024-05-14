@@ -14,6 +14,7 @@ const Reviews = () => {
         navigation={true}
         modules={[Navigation]}
         className="mySwiper"
+        loop={true}
       >
         {profileData.reviews.map((review, index) => (
           <SwiperSlide key={index}>
@@ -23,7 +24,7 @@ const Reviews = () => {
         ))}
       </Swiper>
     </>
-  )
+  );
 }
 
 export default Reviews

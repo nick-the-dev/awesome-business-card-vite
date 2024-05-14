@@ -1,45 +1,56 @@
-import { useState, useEffect } from 'react'
-import { animated, useTransition } from '@react-spring/web'
-import { updateBackgroundColor } from '@/helpers/updateBgColor'
+import { useState, useEffect, useRef } from 'react';
 
 const Gallery = ({ images }: { images: Array<string> }) => {
-  const slides = images.map((image, index) => ({
-    id: index,
-    url: image,
-  }))
-
-  const [index, setIndex] = useState(0)
-  const transitions = useTransition(slides[index], {
-    keys: (item) => item.id,
-    from: { opacity: 0 },
-    enter: { opacity: 1 },
-    leave: { opacity: 0 },
-    config: { duration: 1000 }, // Using a fixed duration for transition, you can customize it
-  })
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loadedImages, setLoadedImages] = useState<{
+    [key: string]: HTMLImageElement;
+  }>({});
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    updateBackgroundColor()
-  }, [])
+    // Function to load image and update cache
+    const loadImage = (url: string) => {
+      if (!loadedImages[url]) {
+        const img = new Image();
+        img.src = url;
+        img.onload = () => {
+          setLoadedImages((prevLoadedImages) => ({
+            ...prevLoadedImages,
+            [url]: img,
+          }));
+        };
+      }
+    };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((state) => (state + 1) % slides.length)
-      updateBackgroundColor()
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
+    // Preload the first image
+    loadImage(images[currentSlide]);
 
-  return transitions((style, item) => (
-    // Try to use cached images first
+    // Set up the interval to change slides every 2 seconds
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((prevSlide) => {
+        const nextSlide = (prevSlide + 1) % images.length;
+        loadImage(images[nextSlide]);
+        return nextSlide;
+      });
+    }, 2000);
 
-    <animated.div
-      style={{
-        ...style,
-        backgroundImage: `url(${item.url})`,
-      }}
-      className="bg"
-    />
-  ))
-}
+    // Clean up the interval on component unmount
+    return () => clearInterval(intervalRef.current!);
+  }, [images, currentSlide, loadedImages]);
 
-export default Gallery
+  // Get the current image from the cache
+  const currentImage: HTMLImageElement | undefined =
+    loadedImages[images[currentSlide]];
+
+  return (
+    <div className="gallery">
+      {currentImage ? (
+        <img src={currentImage.src} alt={`Slide ${currentSlide}`} />
+      ) : (
+        ''
+      )}
+    </div>
+  );
+};
+
+export default Gallery;

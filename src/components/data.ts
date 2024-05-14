@@ -34,7 +34,7 @@ import review19 from '@/assets/reviews/19.jpg'
 const profileData = {
   name: 'שיר מנחם ניסים',
   shortName: 'שיר',
-  title: 'מאפרת ומעצבת שיער לכלות',
+  title: 'מאפרת ומעצבת שיער - כלות ואופנה',
   phoneNumber: '+972525422608',
   whatsappNumber: '972525422608',
   facebookUrl: 'https://www.facebook.com/shir.menachem.73?locale=he_IL',
@@ -75,6 +75,6 @@ const profileData = {
     review18,
     review19,
   ],
-}
+};
 
 export { profileData }
