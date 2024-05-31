@@ -38,11 +38,9 @@ const Home = () => {
       </Helmet>
       <div className="h-[calc(100dvh)] relative">
         <div className="flex flex-col justify-center items-center h-[calc(100dvh)] gap-10 appContainer z-10 relative">
-          {location.pathname === '/qr' && (
             <div className="qrWrapper">
-              <QRCode value={'123123123'} />
+              <QRCode value={'https://makeuphairbyshir.com'} />
             </div>
-          )}
           <h1
             className="text-center text-white text-3xl mainTitle"
             style={{
